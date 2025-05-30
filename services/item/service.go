@@ -6,6 +6,11 @@ import (
 )
 
 func Create(newItem types.Item) (*types.Item, error) {
-    result := database.DB.Create(&newItem)
-    return &newItem, result.Error
+	result := database.DB.Create(&newItem)
+	return &newItem, result.Error
+}
+func GetById(id int) (*types.Item, error) {
+	var item types.Item
+	result := database.DB.First(&item, id)
+	return &item, result.Error
 }
