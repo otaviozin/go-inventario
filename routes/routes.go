@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/otaviozin/go-inventario/routes/ping"
+	"github.com/otaviozin/go-inventory/routes/ping"
 )
 
 func RoutePrefix(app *fiber.App) {
