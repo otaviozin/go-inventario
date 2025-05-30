@@ -9,8 +9,8 @@ import (
 func main() {
 	app := fiber.New()
 
-	routes.RoutePrefix(app)
 	database.Connect()
+	routes.RoutePrefix(app)
 
 	app.Listen(":8000")
 }

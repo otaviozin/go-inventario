@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
+	"github.com/otaviozin/go-inventory/types"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -47,6 +48,10 @@ func Connect() {
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
+
+	db.AutoMigrate(&types.Batch{})
+	db.AutoMigrate(&types.Box{})
+	db.AutoMigrate(&types.Item{})
 
 	log.Println("Connected to database successfully.")
 	DB = db
