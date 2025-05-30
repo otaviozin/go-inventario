@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/otaviozin/go-inventario/routes"
+	"github.com/otaviozin/go-inventory/routes"
 )
 
 func main() {
