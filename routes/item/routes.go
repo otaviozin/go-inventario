@@ -8,5 +8,7 @@ import (
 func RegisterRoutes(api fiber.Router) {
 	item := api.Group("/item")
 
+	item.Get("/", itemController.GetItem)
+
 	item.Post("/", itemController.Create)
 }
