@@ -9,4 +9,5 @@ func RegisterRoutes(api fiber.Router) {
 	batch := api.Group("/batch")
 
 	batch.Post("/", batchController.Create)
+	batch.Get("/:id", batchController.GetById)
 }
