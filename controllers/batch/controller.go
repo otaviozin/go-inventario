@@ -29,3 +29,17 @@ func Create(c *fiber.Ctx) error {
 
 	return c.Status(201).JSON(newBatch)
 }
+
+func GetById(c *fiber.Ctx) error {
+	id, err := c.ParamsInt("id")
+	if err != nil || id <= 0 {
+		return c.Status(400).JSON(fiber.Map{"error": "Invalid batch ID"})
+	}
+
+	foundBatch, err := batch.GetById(id)
+	if err != nil {
+		return c.Status(404).JSON(fiber.Map{"error": "Batch not found"})
+	}
+
+	return c.JSON(foundBatch)
+}
